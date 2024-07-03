@@ -1,0 +1,9 @@
+<p>task-list works!</p>
+<div>
+    <h2>Task List</h2>
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{ task.title }} - {{ task.status }} - {{task.description}} - {{task.createdDate}}
+      </li>
+    </ul>
+  </div>
