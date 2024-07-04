@@ -1,6 +1,6 @@
 <h1>Task-Manager !</h1>
-<div>
-  <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+<div class="task-container">
+  <form class="task-form" (ngSubmit)="onSubmit()" #taskForm="ngForm">
     <input type="hidden" [(ngModel)]="task.taskId" name="id" />
     <div>
       <label for="title">Title : </label>
@@ -19,17 +19,21 @@
             <option value="Pending">Completed</option>
          </select>
       </div>
+      <div >
+        <label for="createdDate">Created Date</label>
+        <input type="date" id="createdDate" class="createdDate" required [(ngModel)]="task.createdDate" name="createdDate"/>
+    </div>
       <button type="submit">{{task.taskId?'Update':'Add'}} Task</button>
       <div>
     </div>
 </form>
 <!-- <button (click)="addTask()">Add</button>
 <button (click)="editTask()">Update</button> -->
-<ul>
-    <li *ngFor="let task of tasks">
+<ul class="task-list">
+    <li *ngFor="let task of tasks" class="task-item">
       {{ task.title }} - {{ task.description }} - {{ task.status }} - {{ task.createdDate | date }}
       <button (click)="editTask(task)">Edit</button>
       <button (click)="deleteTask(task.taskId)">Delete</button>
     </li>
-  </ul>X    
+  </ul>
 </div>
